@@ -3,15 +3,23 @@
     background-color: white;
    
   }
+
+  .example-sidenav {
+    background-color: white;
+    border-color: rgb(232, 236, 236);
+    width: auto;
+    border-radius: 0%;
+    color: black; /* Falls du eine dunklere Schrift möchtest */
+  }
+
   
   .custom-toolbar {
     background-color: #64b5f6; /* Hellblau */
     color: white;
+
+    .menu-icon{
+      margin-right: 4px;
+      cursor: pointer;
+    }
    
-  }
-  .example-sidenav {
-    background-color: white;
-    border-color: rgb(232, 236, 236);
-    border-radius: 0%;
-    color: black; /* Falls du eine dunklere Schrift möchtest */
   }
