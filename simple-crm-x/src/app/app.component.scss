@@ -4,12 +4,22 @@
    
   }
 
-  .example-sidenav {
+  .sidenav {
     background-color: white;
     border-color: rgb(232, 236, 236);
     width: auto;
+    width: 300px;
     border-radius: 0%;
     color: black; /* Falls du eine dunklere Schrift möchtest */
+
+    .logo-container{
+      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+      padding-left: 16px;
+      padding-right: 16px;
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+    }
   }
 
   
@@ -23,3 +33,9 @@
     }
    
   }
+
+  mat-toolbar, mat-toolbar-row {
+    min-height: 56px;
+    height: 56px;
+  }
+ 
