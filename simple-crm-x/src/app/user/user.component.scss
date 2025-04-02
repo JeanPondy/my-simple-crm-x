@@ -3,3 +3,14 @@
     right: 56px;
     bottom: 56px;
 }
+
+.users-table{
+    width: 100%;
+    th{
+        text-align: start;
+    }
+    .users-element{
+        font-weight: 800;
+        font-size: 16px;
+    }
+}
