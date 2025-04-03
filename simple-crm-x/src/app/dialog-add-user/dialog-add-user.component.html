@@ -27,6 +27,20 @@
         <mat-hint>Please enter your last name</mat-hint>
       </mat-form-field>
     </div>
+
+    <!-- -----------------------------------E-mail -->
+    <div>
+      <mat-form-field class="mT-16 full-width" appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input
+          [disabled]="isLoading"
+          [(ngModel)]="user.email"
+          matInput
+          placeholder=""
+        />
+        <mat-hint>Please enter your E-mail</mat-hint>
+      </mat-form-field>
+    </div>
     <!-- -----------------------------------Birthdate -->
     <div>
       <mat-form-field class="mT-16 full-width" appearance="outline">
