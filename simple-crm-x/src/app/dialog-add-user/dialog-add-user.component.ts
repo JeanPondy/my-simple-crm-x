@@ -29,6 +29,10 @@ export class DialogAddUserComponent {
     private dialogRef: MatDialogRef<DialogAddUserComponent> // ✅ Dialog-Referenz richtig injizieren
   ) {} 
 
+  closeDialog() {
+    this.dialogRef.close();
+  }
+
   async saveUser() {
     this.user.birthDate = this.birthDate.getTime();
     console.log('Current User is', this.user);
