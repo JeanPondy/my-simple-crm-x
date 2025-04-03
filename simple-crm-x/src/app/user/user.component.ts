@@ -39,7 +39,15 @@ export class UserComponent {
       
       // User-Objekte mit ID aus Firestore holen
       this.users = userSnapshot.docs.map(doc => new User({ id: doc.id, ...doc.data() }));
-      
+
+      // IDs der Benutzer in der Konsole ausgeben
+    /* this.users.forEach(user => console.log(`User ID: ${user.id}`));  */
+
+     // IDs der Benutzer in der Konsole ausgeben
+    this.users.forEach(user => {
+      console.log('User ID:', user.id);
+    }); 
+    
       // Vollständige User-Daten ausgeben
       console.log('Received changes from DB:', this.users);
     } catch (error) {
