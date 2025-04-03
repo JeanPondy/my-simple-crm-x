@@ -4,8 +4,50 @@
     bottom: 56px;
 }
 
+mat-card-content {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .users-table{
     width: 100%;
+    border-collapse: collapse;
+    tr{
+        border-bottom: 1px solid #e9e0e4;
+        cursor: pointer;
+        &:first-child{
+            cursor: unset;
+        }
+        &:last-child {
+            border-bottom: 0;
+             }   
+             td{
+                height: 32px;
+
+                &:first-child{
+                    padding-left: 16px;
+                }
+            }
+            th {
+                &:first-child{
+                    padding-left: 16px;
+                }
+            }
+
+            &:hover {
+                background-color: #464344;
+                
+                &:first-child{
+                    background-color: #161215;
+                }
+            }
+
+    }
+    
+    
+    td{
+        height: 32px;
+    }
     th{
         text-align: start;
     }
@@ -14,3 +56,6 @@
         font-size: 16px;
     }
 }
+
+
+  
