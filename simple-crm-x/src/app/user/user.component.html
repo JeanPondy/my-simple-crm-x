@@ -1,26 +1,20 @@
 <mat-card appearance="outlined">
   <mat-card-content>
     <table class="users-table">
-      <tr>
-        <th>Name</th>
-        <th>E-mail</th>
-        <th>City</th>
-      </tr>
-      <tr class="users-element">
-        <td>hallo</td>
-        <td>meyega</td>
-        <td>mapubi</td>
-      </tr>
-      <tr class="users-element">
-        <td>hallo</td>
-        <td>meyega</td>
-        <td>mapubi</td>
-      </tr>
-      <tr class="users-element">
-        <td>hallo</td>
-        <td>meyega</td>
-        <td>mapubi</td>
-      </tr>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>E-mail</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="users-element" *ngFor="let user of users">
+          <td>{{ user.firstName }} {{ user.lastName }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.city }}</td>
+        </tr>
+      </tbody>
     </table>
   </mat-card-content>
 </mat-card>
