@@ -9,7 +9,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="users-element" *ngFor="let user of users">
+        <tr
+          class="users-element"
+          *ngFor="let user of users"
+          [routerLink]="['/user', user.id]"
+          routerLinkActive="active-link"
+        >
           <td>{{ user.firstName }} {{ user.lastName }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.city }}</td>

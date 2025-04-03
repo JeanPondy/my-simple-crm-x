@@ -8,11 +8,12 @@ import {MatCardModule} from '@angular/material/card';
 import { collection, Firestore, getDocs } from '@angular/fire/firestore';
 import { User } from '../models/user.class';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule, MatTooltipModule, MatDialogModule, MatCardModule, CommonModule],
+  imports: [MatButtonModule, MatIconModule, MatTooltipModule, MatDialogModule, MatCardModule, CommonModule, RouterModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
@@ -41,13 +42,15 @@ export class UserComponent {
       this.users = userSnapshot.docs.map(doc => new User({ id: doc.id, ...doc.data() }));
 
       // IDs der Benutzer in der Konsole ausgeben
-    /* this.users.forEach(user => console.log(`User ID: ${user.id}`));  */
+    this.users.forEach(user => console.log(`User ID: ${user.id}`)); 
+
 
      // IDs der Benutzer in der Konsole ausgeben
-    this.users.forEach(user => {
-      console.log('User ID:', user.id);
-    }); 
-    
+    this.users = userSnapshot.docs.map(doc => new User(doc.data(), doc.id));
+  /*   this.users.forEach(user => {console.log('User ID:', user.id);});  */
+    // IDs der Benutzer direkt aus firebase holen und in der Konsole ausgeben
+    /* userSnapshot.docs.forEach(doc => console.log(`Fetched doc: ${doc.id}`, doc.data())); */
+
       // Vollständige User-Daten ausgeben
       console.log('Received changes from DB:', this.users);
     } catch (error) {
