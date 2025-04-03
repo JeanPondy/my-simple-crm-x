@@ -12,12 +12,19 @@ mat-card-content {
 .users-table{
     width: 100%;
     border-collapse: collapse;
-    tr{
+    thead tr{
+        cursor: unset;
+        &:first-child{
+         height: 48px;
+            border-bottom: 4px solid #e9e0e4;
+            background-color: #161215;
+        }
+    }
+
+     tr{
         border-bottom: 1px solid #e9e0e4;
         cursor: pointer;
-        &:first-child{
-            cursor: unset;
-        }
+     
         &:last-child {
             border-bottom: 0;
              }   
@@ -37,9 +44,7 @@ mat-card-content {
             &:hover {
                 background-color: #464344;
                 
-                &:first-child{
-                    background-color: #161215;
-                }
+             
             }
 
     }
@@ -56,6 +61,3 @@ mat-card-content {
         font-size: 16px;
     }
 }
-
-
-  
