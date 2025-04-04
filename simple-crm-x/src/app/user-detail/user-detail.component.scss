@@ -5,6 +5,7 @@
     display: flex;
     align-items:flex-start;
     justify-content: flex-end;
+    border-radius: 0%;
 
     img{
         height: 100px;
@@ -16,7 +17,7 @@
     .user-content{
         display: flex;
        margin-left: 0px;
-       .user-infos {
+       .user-name-email {
         margin-left: 16px;
         display: flex ;
         flex-direction: column;
@@ -26,4 +27,10 @@
         }
        }
     }
+}
+
+.user-detail-address{
+    background-color:#fdfdfd;
+    color: black;
+    border-radius: 0%;
 }
