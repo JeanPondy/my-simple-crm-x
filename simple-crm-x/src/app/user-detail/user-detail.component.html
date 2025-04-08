@@ -1,5 +1,18 @@
 <p>user-detail works!</p>
 <mat-card class="user-detail-header" appearance="outlined">
+  <button
+    [matMenuTriggerFor]="userMenu"
+    mat-icon-button
+    class="pin-right-upper-corner"
+    (click)="editUserDetail()"
+  >
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item (click)="editMenu()">Edit</button>
+  </mat-menu>
+
   <mat-card-content class="user-content">
     <img src="./assets/img/profile-1.png" alt="" />
     <div class="user-name-email">
@@ -11,12 +24,17 @@
 
 <mat-card class="user-detail-address mT-32">
   <button
+    [matMenuTriggerFor]="addressMenu"
     mat-icon-button
     class="pin-right-upper-corner"
-    (click)="openAddressDialog()"
   >
     <mat-icon>more_vert</mat-icon>
   </button>
+
+  <mat-menu #addressMenu="matMenu">
+    <button mat-menu-item (click)="editMenu()">Edit</button>
+  </mat-menu>
+
   <mat-card-header>
     <mat-card-title>Address</mat-card-title>
   </mat-card-header>
