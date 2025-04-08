@@ -1,1 +1,79 @@
 <p>dialog-edit-user works!</p>
+<p>dialog-edit-address works!</p>
+<div class="diaolg-window">
+  <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+  <h2 mat-dialog-title>Edit address</h2>
+  <mat-dialog-content>
+    <div>
+      <!-- -----------------------------------First-name -->
+      <mat-form-field class="mT-16 mR-16" appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input
+          [disabled]="isLoading"
+          [(ngModel)]="user.firstName"
+          matInput
+          placeholder=""
+        />
+        <mat-hint>Please enter your first name</mat-hint>
+      </mat-form-field>
+      <!-- -----------------------------------Last-name -->
+      <mat-form-field class="mT-16" appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input
+          [disabled]="isLoading"
+          [(ngModel)]="user.lastName"
+          matInput
+          placeholder=""
+        />
+        <mat-hint>Please enter your last name</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <!-- -----------------------------------E-mail -->
+    <div>
+      <mat-form-field class="mT-16 full-width" appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input
+          [disabled]="isLoading"
+          [(ngModel)]="user.email"
+          matInput
+          placeholder=""
+        />
+        <mat-hint>Please enter your E-mail</mat-hint>
+      </mat-form-field>
+    </div>
+    <!-- -----------------------------------Birthdate -->
+    <div>
+      <mat-form-field class="mT-16 full-width" appearance="outline">
+        <mat-label>Choose a date</mat-label>
+        <input
+          [disabled]="isLoading"
+          [(ngModel)]="user.birthDate"
+          matInput
+          [matDatepicker]="picker"
+          placeholder="Please your Birthdate "
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button [disabled]="isLoading" mat-button (click)="closeDialog()">
+      Cancel
+    </button>
+    <button
+      [disabled]="isLoading"
+      mat-button
+      (click)="saveUser()"
+      [mat-dialog-close]=""
+      cdkFocusInitial
+    >
+      Save
+    </button>
+  </mat-dialog-actions>
+</div>

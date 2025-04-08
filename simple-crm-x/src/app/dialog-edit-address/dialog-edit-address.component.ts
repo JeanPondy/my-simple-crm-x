@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class DialogEditAddressComponent {
  user = new User;
-   isLoading = false;
+isLoading = false;
   
     constructor(
       private firestore: Firestore,
