@@ -6,10 +6,14 @@ import { User } from '../models/user.class';
 import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule, MatDialog} from '@angular/material/dialog';
+import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
+import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
+
 @Component({
   selector: 'app-user-detail',
   standalone: true,
-  imports: [MatCardModule, MatIconModule, MatButtonModule, MatMenuModule],
+  imports: [MatCardModule, MatIconModule, MatButtonModule, MatMenuModule, MatDialogModule],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss'
 })
@@ -18,7 +22,7 @@ export class UserDetailComponent implements OnInit {
   user: User = new User();
 
 
-  constructor(private route: ActivatedRoute,  private firestore: Firestore) {}
+  constructor( private route: ActivatedRoute,  private firestore: Firestore, public dialog: MatDialog, ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(paramMap => { 
@@ -46,6 +50,10 @@ export class UserDetailComponent implements OnInit {
   }
 
 
-  editUserDetail(){}
-  editMenu(){}
+  editUserDetail(){
+    this.dialog.open(DialogEditUserComponent )
+  }
+  editMenu(){
+    this.dialog.open(DialogEditAddressComponent)
+  }
 }

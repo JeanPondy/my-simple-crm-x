@@ -4,13 +4,12 @@
     [matMenuTriggerFor]="userMenu"
     mat-icon-button
     class="pin-right-upper-corner"
-    (click)="editUserDetail()"
   >
     <mat-icon>more_vert</mat-icon>
   </button>
 
   <mat-menu #userMenu="matMenu">
-    <button mat-menu-item (click)="editMenu()">Edit</button>
+    <button mat-menu-item (click)="editUserDetail()">Edit</button>
   </mat-menu>
 
   <mat-card-content class="user-content">
