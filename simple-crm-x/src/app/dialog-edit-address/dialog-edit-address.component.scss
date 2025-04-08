@@ -1,0 +1,11 @@
+:host {
+    display: block;
+    color: black; // Standard-Textfarbe
+    background-color: white; // Fallback, falls nötig
+  }
+  
+  ::ng-deep .mat-dialog-container {
+    background-color: white !important;
+    color: black !important;
+  }
+  
