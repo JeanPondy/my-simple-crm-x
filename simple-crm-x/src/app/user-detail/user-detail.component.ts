@@ -50,10 +50,12 @@ export class UserDetailComponent implements OnInit {
   }
 
 
-  editUserDetail(){
-    this.dialog.open(DialogEditUserComponent )
+  editUserDetail() {
+    const dialogRef = this.dialog.open(DialogEditUserComponent);
+    
   }
   editMenu(){
-    this.dialog.open(DialogEditAddressComponent)
+    const dialog = this.dialog.open(DialogEditAddressComponent);
+    dialog.componentInstance.user = this.user;
   }
 }
