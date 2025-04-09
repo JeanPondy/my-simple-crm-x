@@ -5,7 +5,7 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { CommonModule } from '@angular/common';
 import { User } from '../models/user.class';
-import { addDoc, collection, Firestore } from '@angular/fire/firestore';
+import { doc, Firestore, updateDoc } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-dialog-edit-address',
@@ -16,30 +16,44 @@ import { FormsModule } from '@angular/forms';
 })
 export class DialogEditAddressComponent {
  user = new User;
-isLoading = false;
+ isLoading: boolean = false;
+ userId: string = ''; 
   
     constructor(
       private firestore: Firestore,
       private dialogRef: MatDialogRef<DialogEditAddressComponent > // ✅ Dialog-Referenz richtig injizieren
     ) {} 
   
-    closeDialog() {
-      this.dialogRef.close();
-    }
   
-    async saveUser() {
-/*       console.log('Current User is', this.user);
-      this. isLoading = true;
-      try {
-        const usersCollection = collection(this.firestore, 'users');
-        await addDoc(usersCollection, this.user.toJSON());
-        console.log('User erfolgreich gespeichert!');
-        this. isLoading = false;
-        this.dialogRef.close(); // ✅ Dialog jetzt schließen
-        window.location.reload();
-      } catch (error) {
-        console.error('Fehler beim Speichern:', error);
-      } */
+  ngOnInit(){
+    console.log('User ID:', this.userId); 
+  } 
+
+  closeDialog() {
+    this.dialogRef.close();
+  }
+ 
+  async updateAddress() {
+    if (!this.userId) {
+      console.error('userId is missing!');
+      return;
     }
+
+    this.isLoading = true;
+
+    try {
+      const userDocRef = doc(this.firestore, 'users', this.userId);
+
+      await updateDoc(userDocRef, this.user.toJSON());
+      
+      console.log('User updated successfully:', this.user.toJSON());
+      this.dialogRef.close();
+      window.location.reload(); 
+    } catch (error) {
+      console.error('Error updating user:', error);
+    } finally {
+      this.isLoading = false;
+    }
+  } 
 
 }
